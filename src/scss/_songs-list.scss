@@ -8,21 +8,49 @@ $song-border-width: 1px;
 
 .songs-list{
 
+    @include if-is-medium-screen{ //Estoy incluyendo fflexbox en la versión de ipad para aprovechar más el espacio
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+
     .song{
       @extend .clearfix; //Le decimos que el contenedor son hereda de la clase clearfix
       padding: 15px;
       border-bottom: $song-border-width solid $song-border-color;
+
+      @include if-is-medium-screen{
+        width: 20%; // para meter 4 canciones por fila
+        box-sizing: border-box; //Si no ponemos esto, nos toma los 15px y no llega la fila hata el final de la pantalla. Así le decimos que el borde de la caja incluye el padding
+        text-align: center;
+      }
+
+      @include if-is-large-screen{
+        width: (100% / 6);
+      }
+
+
         .cover{
           width: $song-cover-width;
           float: left;
           margin-right: 20px;
+          @include if-is-medium-screen{
+              float: none;
+              margin: 0;
+              width: 100%;
+          }
+
+
         }
         .artist{
           margin-top: 25px;
           font-size: $font-size-large;
           @include text-overflow-elipsis;
+          @include if-is-medium-screen{
+            margin-top: 5px;
+          }
         }
-      .title{
+        .title{
           @include text-overflow-elipsis;
       }
     }

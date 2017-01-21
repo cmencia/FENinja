@@ -15,3 +15,26 @@
   white-space: nowrap;
   overflow: hidden;
 }
+
+
+//Para no tener que poner a todos mediaqueris nos creamos unos mixin para los responsive
+
+
+
+@mixin if-is-large-screen {
+  @media all and (min-width: #{$large-screen-width}) {
+    @content;
+  }
+}
+
+@mixin if-is-medium-screen {
+  @media all and (min-width: #{$medium-screen-width}) {
+    @content;
+  }
+}
+
+@mixin if-is-small-screen {
+  @media all and (max-width: #{$small-screen-width}) {
+    @content;
+  }
+}

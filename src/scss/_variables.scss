@@ -27,3 +27,8 @@ $color-secondary: $color-nuclear-orange;
 
 $main-text-color: $color-beautys-bath;
 $body-background-color: white;
+
+//Responsive break points - Decimos en que tamaño consideramos cambio
+$large-screen-width: 1024px; //oPad en LAndscape o superior
+$medium-screen-width: 768px; //Ipad Portrait
+$small-screen-width: $medium-screen-width - 1;//Siempre empezamos por este pero le decimos que va a ser igual que la media menos 1 px
