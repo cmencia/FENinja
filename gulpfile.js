@@ -13,7 +13,7 @@ gulp.task("default", ["compile-sass"], function () { //Definimos la tarea a real
     });
 
     //cuando haya cambios en style.scss, compila sass. El watch está atento a los cambios en el fichero que le decimos
-    gulp.watch('./src/scss/style.scss',['compile-sass']);
+    gulp.watch('./src/scss/*.scss',['compile-sass']);//Observa cambios en cualquier scss
 
     //cuando se cambie el html recarga el navegador
     gulp.watch('./*.html', function () { // le digo que al modificar cualquier fichero html y le paso la función como una variable
