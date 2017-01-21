@@ -1,0 +1,17 @@
+.clearfix{
+  &:before,
+  &:after{
+    content: " "; //1
+    display: table; //2
+  }
+  &:after{
+    clear: both;
+  }
+}
+
+//Función para que me escriba los ... en caso que sea muy largo el texto
+@mixin text-overflow-elipsis{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

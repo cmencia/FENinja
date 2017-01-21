@@ -1,18 +1,45 @@
 @import url("https://fonts.googleapis.com/css?family=Patua+One|Slabo+27px");
 /*Me importo las fuentes*/
+.clearfix:before, .songs-list .song:before, .clearfix:after, .songs-list .song:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after, .songs-list .song:after {
+  clear: both; }
+
 body {
   background: white;
   color: #255D67;
   font-family: "Slabo 27px", serif;
   font-size: 16px;
-  margin: 0px;
-  padding: 0px; }
+  margin: 0;
+  padding: 0; }
 
 .web-header {
   background: #4DC1D6;
-  padding: 10px; }
+  padding: 10px;
+  margin-bottom: 10px; }
   .web-header .web-title {
     color: white;
     text-align: center;
-    margin: 0px;
-    text-shadow: 2px 2px 0px #1a6370; }
+    margin: 0;
+    text-shadow: 2px 2px 0 #1a6370;
+    font-family: "Patua One", serif; }
+
+.songs-list .song {
+  padding: 15px;
+  border-bottom: 1px solid #D5D5D5; }
+  .songs-list .song .cover {
+    width: 100px;
+    float: left;
+    margin-right: 20px; }
+  .songs-list .song .artist {
+    margin-top: 25px;
+    font-size: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; }
+  .songs-list .song .title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; }

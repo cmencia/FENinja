@@ -1,0 +1,30 @@
+//Variables
+
+$song-cover-width: 100px;
+$song-border-color: $color-grey;
+$song-border-width: 1px;
+
+//Estilos
+
+.songs-list{
+
+    .song{
+      @extend .clearfix; //Le decimos que el contenedor son hereda de la clase clearfix
+      padding: 15px;
+      border-bottom: $song-border-width solid $song-border-color;
+        .cover{
+          width: $song-cover-width;
+          float: left;
+          margin-right: 20px;
+        }
+        .artist{
+          margin-top: 25px;
+          font-size: $font-size-large;
+          @include text-overflow-elipsis;
+        }
+      .title{
+          @include text-overflow-elipsis;
+      }
+    }
+
+}
