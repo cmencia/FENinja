@@ -9,3 +9,81 @@ body {
   padding: 0;
 
 }
+
+//Forms
+
+form{
+    padding: 10px;
+
+  label, input, button{
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+  label{
+          font-size: $font-size-small;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+  input {
+          transition: background-color 0.25s;
+          border: 1px solid $color-primary;
+          margin: 5px 0 15px 0;
+          padding: 10px;
+          font-size: $font-size-base;
+          border-radius: $border-radius-default;
+          &:focus { //Selector & reutiliza el selector padre en este caso form
+            outline-color: $color-primary;
+            background-color: darken(white, 5%); //Función darken es para oscurecer
+          }
+
+    }
+
+    button{
+      @extend input;
+      background-color: $color-primary;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: $main-text-color;
+      &:hover{ //igual que button:hover
+        background-color: lighten($color-primary, 10%);
+      }
+      &:active{//igual que button:active -> click
+        background-color: darken($color-primary, 10%);
+      }
+
+    }
+
+}
+
+//Texto seleccionado
+
+*::selection{ //Se lo aplicamos a todos los elementos
+  background-color: $color-secondary;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
