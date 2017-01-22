@@ -1,0 +1,22 @@
+//Variables
+
+
+
+
+//Estilos
+
+.new-song-form{
+
+  //Vamos a hacer que ocupe toda la pantalla
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh; //100%vertical Heigth le decimos que tenga el mismo alto que el viewport
+  background-color: white;
+  box-sizing: border-box;
+  position: absolute;
+  top:0;
+  width: 100%;
+
+}

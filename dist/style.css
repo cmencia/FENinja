@@ -51,7 +51,9 @@ form {
 .web-header {
   background: #4DC1D6;
   padding: 10px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  z-index: 100;
+  position: relative; }
   .web-header .web-title {
     color: white;
     text-align: center;
@@ -97,3 +99,26 @@ form {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden; }
+
+.new-song-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background-color: white;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  width: 100%; }
+
+body.ui-songs-list-shown .songs-list {
+  display: block; }
+
+body.ui-songs-list-shown .new-song-form {
+  display: none; }
+
+body.ui-form-shown .songs-list {
+  display: none; }
+
+body.ui-form-shown .new-song-form {
+  display: flex; }

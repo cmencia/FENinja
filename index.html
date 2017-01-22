@@ -6,67 +6,68 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
         <link rel="stylesheet" href="dist/style.css">
     </head>
-    <body>
-    <header class="web-header">
+
+    <body class="ui-songs-list-shown">
+
+        <header class="web-header">
         <h1 class="web-title">Limusic</h1>
-    </header>
+        </header>
+
+        <!--Creación del formulario de añadir canciones-->
+
+        <form class="new-song-form" novalidate>
+            <label for="artist">Artist</label>
+            <input type="text" id="artist" name="artist" placeholder="Artist" required>
+
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" placeholder="Title" required>
+
+            <label for="audio_url">Audio URL</label>
+            <input type="url" id="audio_url" name="audio_url" placeholder="http://..." required>
+
+            <label for="cover_url">Cover URL</label>
+            <input type="url" id="cover_url" name="cover_url" placeholder="http://...">
+
+            <button>Save song</button>
+        </form>
 
 
-<!--Creación del formulario de añadir canciones-->
-
-    <form novalidate>
-        <label for="artist">Artist</label>
-        <input type="text" id="artist" name="artist" placeholder="Artist" required>
-
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title" placeholder="Title" required>
-
-        <label for="audio_url">Audio URL</label>
-        <input type="url" id="audio_url" name="audio_url" placeholder="http://..." required>
-
-        <label for="cover_url">Cover URL</label>
-        <input type="url" id="cover_url" name="cover_url" placeholder="http://...">
-
-        <button>Save song</button>
-    </form>
-
-
-    <section class="songs-list">
-        <article class="song">
-            <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
-            <div class="artist">Song artist</div>
-            <div class="title">Song title</div>
-        </article>
-        <article class="song">
-            <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
-            <div class="artist">Song artist</div>
-            <div class="title">Song title</div>
-        </article>
-        <article class="song">
-            <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
-            <div class="artist">Song artist</div>
-            <div class="title">Song title</div>
-        </article>
-        <article class="song">
-            <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
-            <div class="artist">Song artist</div>
-            <div class="title">Song title</div>
-        </article>
-        <article class="song">
-            <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
-            <div class="artist">Song artist</div>
-            <div class="title">Song title</div>
-        </article>
-        <article class="song">
-            <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
-            <div class="artist">Song artist</div>
-            <div class="title">Song title</div>
-        </article>
-        <article class="song">
-            <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
-            <div class="artist">Song artist</div>
-            <div class="title">Song title</div>
-        </article>
+        <section class="songs-list">
+            <article class="song">
+                <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
+                <div class="artist">Song artist</div>
+                <div class="title">Song title</div>
+            </article>
+            <article class="song">
+                <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
+                <div class="artist">Song artist</div>
+                <div class="title">Song title</div>
+            </article>
+            <article class="song">
+                <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
+                <div class="artist">Song artist</div>
+                <div class="title">Song title</div>
+            </article>
+            <article class="song">
+                <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
+                <div class="artist">Song artist</div>
+                <div class="title">Song title</div>
+            </article>
+            <article class="song">
+                <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
+                <div class="artist">Song artist</div>
+                <div class="title">Song title</div>
+            </article>
+            <article class="song">
+                <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
+                <div class="artist">Song artist</div>
+                <div class="title">Song title</div>
+            </article>
+            <article class="song">
+                <img class="cover" src="https://image.freepik.com/free-icon/cd-room_318-9291.jpg" alt="Song album">
+                <div class="artist">Song artist</div>
+                <div class="title">Song title</div>
+            </article>
       </section>
 
     </body>

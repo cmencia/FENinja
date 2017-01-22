@@ -1,0 +1,40 @@
+body{
+
+  //Que he de hacer cuando esté en este estado. Lo pongo en el body porque es cuando carga
+
+
+  &.ui-songs-list-shown{
+    //SI se tiene que ver el listado de canciones
+
+    .songs-list{
+      display:block;
+    }
+
+    //NO se tiene que ver el formulario
+
+    .new-song-form{
+      display:none;
+    }
+
+
+  }
+
+  &.ui-form-shown{
+    //NO se tiene que ver el listado de canciones
+
+    .songs-list{
+      display:none;
+    }
+    //SI se tiene que ver el formulario
+
+
+    .new-song-form{
+      display:flex; // Para que no se meta detrás del title
+    }
+
+  }
+
+
+
+
+}
