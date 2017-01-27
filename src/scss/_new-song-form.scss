@@ -18,5 +18,24 @@
   position: absolute;
   top:0;
   width: 100%;
+  z-index: 0;
+
+
+  @include if-is-medium-screen{
+    height: auto;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+    div{
+        width: calc(50% - 10px); //Le quitamos el padding porque sino salta de línea
+        margin: 0 5px;
+    }
+
+    button{
+      width: 20%;
+    }
+  }
 
 }

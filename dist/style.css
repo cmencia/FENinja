@@ -109,7 +109,19 @@ form {
   box-sizing: border-box;
   position: absolute;
   top: 0;
-  width: 100%; }
+  width: 100%;
+  z-index: 0; }
+  @media all and (min-width: 768px) {
+    .new-song-form {
+      height: auto;
+      position: relative;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      .new-song-form div {
+        width: calc(50% - 10px);
+        margin: 0 5px; }
+      .new-song-form button {
+        width: 20%; } }
 
 body.ui-songs-list-shown .songs-list {
   display: block; }
@@ -117,8 +129,18 @@ body.ui-songs-list-shown .songs-list {
 body.ui-songs-list-shown .new-song-form {
   display: none; }
 
+@media all and (min-width: 768px) {
+  body.ui-songs-list-shown .songs-list {
+    display: flex; } }
+
 body.ui-form-shown .songs-list {
   display: none; }
 
 body.ui-form-shown .new-song-form {
   display: flex; }
+
+@media all and (min-width: 768px) {
+  body.ui-form-shown .songs-list {
+    display: flex; } }
+
+/*# sourceMappingURL=style.css.map */
