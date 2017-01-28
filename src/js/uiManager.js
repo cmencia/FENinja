@@ -14,6 +14,7 @@ module.exports = {
     toogleForm: function(){
 
         if (this.uiStatus =="ui-form-shown") {
+           debugger;
             $("body").removeClass().addClass("ui-songs-list-shown"); //Le digo con jq que saque cualquier clase que tenga el body y que me añada la ui-form-shown para cambiar la vista
             this.uiStatus = "ui-songs-list-shown";
         }else{

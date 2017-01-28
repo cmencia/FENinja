@@ -10223,40 +10223,36 @@ return jQuery;
 },{}],2:[function(require,module,exports){
 var $ = require('jquery');
 
-$('.new-song-form').on("submit"), function () {
+$('.new-song-form').on("submit", function () {
 
-    //Validación rápida de inputs
 
-    var inputs = $(this).find("input").each(function (i) { //i es el índice del bucle y nos sirve para saber en que elemento estas a nivel posicional
+// validación rápida de inputs
+    var inputs = $(this).find("input").each(function(){
+        // para cada input (find("input")) del formulario (this)
+
         var input = this;
-        //para cada input (find("input")) del formulario this
-        if (input.checkValidity() == false){//Input es un objeto de Jquery
-            alert(input.valdationMessage);
+        if (input.checkValidity() == false) {//Input es un objeto de Jquery
+            alert(input.validationMessage);
             input.focus();
             return false;
         }
-
     });
+});
 
 
-    return false; //no queremos que envie el form nunca
-
-
-
-}
 
 },{"jquery":1}],3:[function(require,module,exports){
-require ('./ready.js');
-require ('./form.js');
-},{"./form.js":2,"./ready.js":4}],4:[function(require,module,exports){
+require('./ready');
+require('./form');
+
+},{"./form":2,"./ready":4}],4:[function(require,module,exports){
 var $ = require('jquery');
 var uiManager = require('./uiManager');
 
 
 $(document).ready(function (){
-
-    $("#new-song").on("click", function () {
-        uiManager.toogleForm(); //Función que nos permitirá mostrar u ocultar el formulario
+    $("#new-song").on("click", function(){
+        uiManager.toogleForm();//Función que nos permitirá mostrar u ocultar el formulario
     });
 });
 
@@ -10278,6 +10274,7 @@ module.exports = {
     toogleForm: function(){
 
         if (this.uiStatus =="ui-form-shown") {
+           debugger;
             $("body").removeClass().addClass("ui-songs-list-shown"); //Le digo con jq que saque cualquier clase que tenga el body y que me añada la ui-form-shown para cambiar la vista
             this.uiStatus = "ui-songs-list-shown";
         }else{

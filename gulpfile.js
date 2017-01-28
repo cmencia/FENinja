@@ -6,7 +6,7 @@ var concat = require('gulp-concat');
 var browserify = require('browserify');
 var tap = require('gulp-tap');
 var buffer = require('gulp-buffer');
-var sourcemaps = require('gulp-sourcemaps'); //Ahora me dirá donde esta el código en el archivo origanl scss, no en el css
+var sourcemaps = require('gulp-sourcemaps');//Captura los cambios que hacemos en los archivos //Ahora me dirá donde esta el código en el archivo origanl scss, no en el css
 
 
 //Config - Hemos visto que muchas url se repiten, vamos crearnos variables.
@@ -35,7 +35,8 @@ gulp.task("default", [sassConfig.compileSassTaskName, jsConfig.concatJsTaskName]
     //arancar el servidor de browser sync
 
     browserSync.init({
-       server: "./" //Le decimos que arranque el servidor en la carpeta en la que estoy ahora
+      //server: "./" //Le decimos que arranque el servidor en la carpeta en la que estoy ahora
+        proxy: "127.0.0.1:8000" // Conectamos browsersync con sparrest
     });
 
     //cuando haya cambios en style.scss, compila sass. El watch está atento a los cambios en el fichero que le decimos
@@ -61,7 +62,7 @@ gulp.task(sassConfig.compileSassTaskName, function () {         //Primero ejecut
     .pipe(sass().on('error', function(error){   //Si ocurre un error mostramos notificación
         return notify().write(error);
     }))                                         //Compilo el sass y le asigno una interpretación de errores.
-    .pipe(sourcemaps.write('./'))                                 //Hemos terminado de procesar los archgivos y ponemos la carpeta donde queremos que se generen los source maps (en la misma carperta
+    .pipe(sourcemaps.write('./'))               //Hemos terminado de procesar los archgivos y ponemos la carpeta donde queremos que se generen los source maps (en la misma carperta
     .pipe(gulp.dest(sassConfig.dest))                 //dejo el resultado en ./dist
     .pipe(browserSync.stream())                 //Recargamos el CSS en el navegador
     .pipe(notify("SASS Compilado"));

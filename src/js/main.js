@@ -1,2 +1,2 @@
-require ('./ready.js');
-require ('./form.js');
+require('./ready');
+require('./form');
