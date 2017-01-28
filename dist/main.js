@@ -10221,8 +10221,34 @@ return jQuery;
 } );
 
 },{}],2:[function(require,module,exports){
+var $ = require('jquery');
+
+$('.new-song-form').on("submit"), function () {
+
+    //Validación rápida de inputs
+
+    var inputs = $(this).find("input").each(function (i) { //i es el índice del bucle y nos sirve para saber en que elemento estas a nivel posicional
+        var input = this;
+        //para cada input (find("input")) del formulario this
+        if (input.checkValidity() == false){//Input es un objeto de Jquery
+            alert(input.valdationMessage);
+            input.focus();
+            return false;
+        }
+
+    });
+
+
+    return false; //no queremos que envie el form nunca
+
+
+
+}
+
+},{"jquery":1}],3:[function(require,module,exports){
 require ('./ready.js');
-},{"./ready.js":3}],3:[function(require,module,exports){
+require ('./form.js');
+},{"./form.js":2,"./ready.js":4}],4:[function(require,module,exports){
 var $ = require('jquery');
 var uiManager = require('./uiManager');
 
@@ -10230,12 +10256,12 @@ var uiManager = require('./uiManager');
 $(document).ready(function (){
 
     $("#new-song").on("click", function () {
-        uiManager.toggleForm(); //Función que nos permitirá mostrar u ocultar el formulario
+        uiManager.toogleForm(); //Función que nos permitirá mostrar u ocultar el formulario
     });
 });
 
 
-},{"./uiManager":4,"jquery":1}],4:[function(require,module,exports){
+},{"./uiManager":5,"jquery":1}],5:[function(require,module,exports){
 /**
  * Created by Carlos on 25/1/17.
  */
@@ -10260,6 +10286,6 @@ module.exports = {
         }
     }
 }
-},{"jquery":1}]},{},[2])
+},{"jquery":1}]},{},[3])
 
 //# sourceMappingURL=main.js.map
