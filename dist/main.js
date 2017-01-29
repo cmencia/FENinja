@@ -10222,9 +10222,70 @@ return jQuery;
 
 },{}],2:[function(require,module,exports){
 var $ = require('jquery');
+var API_URL = "/api/songs/";
+
+
+
+
+module.exports = {
+
+    // recuperar todas las canciones
+    list: function(successCallback, errorCallback) {
+        $.ajax({
+            url: API_URL,
+            type: "get", // get -> recuperar datos en un API REST
+            success: function(data) {
+                successCallback(data);
+            },
+            error: function(error) {
+                errorCallback(error);
+                console.error("SongsServiceError", error);
+            }
+        })
+    },
+
+    // recuperar una canción en concreto
+    // get: function(songId, successCallback, errorCallback) -> GET /api/songs/<songId>
+
+    // borrar una canción
+    delete: function(songId, successCallback, errorCallback) {
+        $.ajax({
+            url: API_URL + songId,
+            type: "delete", // eliminar el recurso de la URL en un API REST
+            success: function(data) {
+                successCallback(data);
+            },
+            error: function(error) {
+                errorCallback(error);
+                console.error("SongsServiceError", error);
+            }
+        });
+    },
+
+    // guardar una canción
+    save: function(song, successCallback, errorCallback) {
+        $.ajax({
+            url: API_URL,
+            type: "post", // post -> crear un recurso en un API REST
+            data: song,
+            success: function(data) {
+                successCallback(data);
+            },
+            error: function(error) {
+                errorCallback(error);
+                console.error("SongsServiceError", error);
+            }
+        });
+    }
+
+};
+
+},{"jquery":1}],3:[function(require,module,exports){
+var $ = require('jquery');
+var SongsService = require('./SongsService');
 
 $('.new-song-form').on("submit", function () {
-
+    var self = this;
 
 // validación rápida de inputs
     var inputs = $(this).find("input").each(function(){
@@ -10237,15 +10298,46 @@ $('.new-song-form').on("submit", function () {
             return false;
         }
     });
+
+    // con todos los campos OK, guardamos en el backend la canción
+
+    // creamos el objeto canción que quiero guardar con los datos dle formulario haciendo una petición ajax
+
+
+    var song = { //Nos creamos un objeto song
+        artist: $("#artist").val(), //Tiene el valor de campo artist .val para que nos de el valos
+        title: $("#title").val(),
+        audio_url: $("#audio_url").val(),
+        cover_url: $("#cover_url").val()
+    };
+
+    //Ahora lo enviamos al backend con una petición ajax
+
+    // antes de enviar el formulario, bloqueamos el botón de enviar
+    $(this).find("button").text("Saving song...").attr("disabled", true);
+
+    // lo enviamos al backend
+    SongsService.save(song, function(data) { // si se guarda bien
+        alert("Canción guardada correctamente");
+        self.reset(); // resetea el formulario. Ponemos el 0 pq sino no accederíamos al reset del DOM (reset es una propiedad html)
+        $(self).find("button").text("Save song").attr("disabled", false);
+        SongsListManager.loadSongs();
+    }, function(error) { // si no se guarda
+        alert("Se ha producido un error");
+        $(self).find("button").text("Save song").attr("disabled", false); // TODO: refactorizar esto //Activamos boton
+    });
+
+    return false; // no queremos enviar el formulario nunca
+
 });
 
 
 
-},{"jquery":1}],3:[function(require,module,exports){
+},{"./SongsService":2,"jquery":1}],4:[function(require,module,exports){
 require('./ready');
 require('./form');
 
-},{"./form":2,"./ready":4}],4:[function(require,module,exports){
+},{"./form":3,"./ready":5}],5:[function(require,module,exports){
 var $ = require('jquery');
 var uiManager = require('./uiManager');
 
@@ -10257,10 +10349,7 @@ $(document).ready(function (){
 });
 
 
-},{"./uiManager":5,"jquery":1}],5:[function(require,module,exports){
-/**
- * Created by Carlos on 25/1/17.
- */
+},{"./uiManager":6,"jquery":1}],6:[function(require,module,exports){
 //Es el archivo que se va a encargar de gestionar las interfaces. Lo hemos sacado de la parte del ready.js
 
 //Para que haciendo un require me lo meta en una variable
@@ -10283,6 +10372,6 @@ module.exports = {
         }
     }
 }
-},{"jquery":1}]},{},[3])
+},{"jquery":1}]},{},[4])
 
 //# sourceMappingURL=main.js.map

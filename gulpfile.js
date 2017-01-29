@@ -7,11 +7,13 @@ var browserify = require('browserify');
 var tap = require('gulp-tap');
 var buffer = require('gulp-buffer');
 var sourcemaps = require('gulp-sourcemaps');//Captura los cambios que hacemos en los archivos //Ahora me dirá donde esta el código en el archivo origanl scss, no en el css
-
+var uglify = requier('gulp-uglify');
 
 //Config - Hemos visto que muchas url se repiten, vamos crearnos variables.
 
 //Nos creamos un objeto en el ponemos toda la configuración de las rutas para evitar que nos equivoquemos al ponerla en el código. Si hemos de cambiar algo lo hacemos aquí y ya
+
+//Definimos las configutaciones
 
 var sassConfig = {
     compileSassTaskName: 'compile-sass',
@@ -28,6 +30,12 @@ var jsConfig = {
     dest: './dist/'
 };
 
+
+var uglifyConfig = {
+    uglifyTaskName: "uglify",
+    src: './dist/main.js',
+    dest: './dist/'
+};
 
 gulp.task("default", [sassConfig.compileSassTaskName, jsConfig.concatJsTaskName], function () { //Definimos la tarea a realizar cuando llamemos a gulp
 
@@ -88,10 +96,13 @@ gulp.task(jsConfig.concatJsTaskName, function(){
         .pipe(browserSync.stream());
 });
 
-
-
-
-
+// definimos la tarea de minifigación con Uglify
+gulp.task(uglifyConfig.uglifyTaskName, ["concat-js"], function(){
+    gulp.src(uglifyConfig.src)
+        .pipe(uglify())
+        .pipe(gulp.dest(uglifyConfig.dest))
+        .pipe(notify("JS Minificado"));
+});
 
 
 

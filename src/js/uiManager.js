@@ -1,6 +1,3 @@
-/**
- * Created by Carlos on 25/1/17.
- */
 //Es el archivo que se va a encargar de gestionar las interfaces. Lo hemos sacado de la parte del ready.js
 
 //Para que haciendo un require me lo meta en una variable
